@@ -78,12 +78,13 @@ class Player(GameObject):
         # w_verts = [self.body.position + v.rotated(self.body.angle) for v in l_verts]
         # w_int = [(int(vert[0]), int(vert[1])) for vert in w_verts]
         # pygame.draw.polygon(self.surface, P_COLOR, w_int)
-        pygame.draw.circle(self.surface, P_COLOR, self.body.position, P_SIZE/2)
+        dCam = (camera["dx"], camera["dy"])
+        pygame.draw.circle(self.surface, P_COLOR, self.body.position - dCam, P_SIZE/2)
         pygame.draw.line(
             self.surface, 
             0x000000,
-            pymunk.Vec2d(-P_SIZE/2, 0).rotated(self.body.angle) + self.body.position + camera["delta"],
-            pymunk.Vec2d(P_SIZE/2, 0).rotated(self.body.angle) + self.body.position + camera["delta"]
+            pymunk.Vec2d(-P_SIZE/2, 0).rotated(self.body.angle) + self.body.position - dCam,
+            pymunk.Vec2d(P_SIZE/2, 0).rotated(self.body.angle) + self.body.position - dCam
         )
 
 

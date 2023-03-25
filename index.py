@@ -32,8 +32,8 @@ player = Player(
     )
 )
 def cameraToPlayer():
-    camera["dx"] = player.body.position[0]
-    camera["dy"] = player.body.position[1]
+    camera["dx"] = player.body.position[0] - RESOLUTION[0]/2
+    camera["dy"] = player.body.position[1] - RESOLUTION[1]/2
 
 initMap(screen, space)
 print(f"There are {len(instances)} gameobject(s)!")

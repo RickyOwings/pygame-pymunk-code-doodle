@@ -79,9 +79,10 @@ class MapTile(GameObject):
 
 
     def draw(self):
+        dCam = (camera["dx"], camera["dy"])
         l_verts = self.shape.get_vertices()
-        w_verts = [self.body.position + v.rotated(self.body.angle) for v in l_verts]
-        w_int = [(int(vert[0]), int(vert[1]) + camera["delta"]) for vert in w_verts]
+        w_verts = [self.body.position + v.rotated(self.body.angle) - dCam for v in l_verts]
+        w_int = [(int(vert[0]), int(vert[1])) for vert in w_verts]
         pygame.draw.polygon(self.surface, T_COLOR, w_int)
 
 
