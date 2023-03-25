@@ -5,29 +5,73 @@ from Camera import camera
 # -----TILE CONSTANTS-----
 T_COLOR = 0x444444
 T_SIZE = 100
+# 1
 T_POLY = [
     (-T_SIZE/2, -T_SIZE/2),
     (T_SIZE/2, -T_SIZE/2),
     (T_SIZE/2, T_SIZE/2),
     (-T_SIZE/2, T_SIZE/2),
 ]
+
+# 2
 T_RAMP = [
     (T_SIZE/2, 0),
     (T_SIZE/2, T_SIZE/2),
     (-T_SIZE/2, T_SIZE/2),
 ]
 
-T_MASS = 100.0
+# 3
+T_RAMP_BIG = [
+    (T_SIZE/2, -T_SIZE/2),
+    (T_SIZE/2, T_SIZE/2),
+    (-T_SIZE/2, T_SIZE/2),
+]
+# 4
+T_RAMP_F = [
+    (-T_SIZE/2, 0),
+    (-T_SIZE/2, T_SIZE/2),
+    (T_SIZE/2, T_SIZE/2),
+]
+# 5
+T_RAMP_BIG_F = [
+    (-T_SIZE/2, -T_SIZE/2),
+    (-T_SIZE/2, T_SIZE/2),
+    (T_SIZE/2, T_SIZE/2),
+]
+# 6
+T_RAMP_U = [
+    (-T_SIZE/2, 0),
+    (-T_SIZE/2, -T_SIZE/2),
+    (T_SIZE/2, -T_SIZE/2),
+]
+# 7
+T_RAMP_BIG_U = [
+    (-T_SIZE/2, T_SIZE/2),
+    (-T_SIZE/2, -T_SIZE/2),
+    (T_SIZE/2, -T_SIZE/2),
+]
+# 8
+T_RAMP_FU = [
+    (T_SIZE/2, 0),
+    (T_SIZE/2, -T_SIZE/2),
+    (-T_SIZE/2, -T_SIZE/2),
+]
+# 9
+T_RAMP_BIG_FU = [
+    (T_SIZE/2, T_SIZE/2),
+    (T_SIZE/2, -T_SIZE/2),
+    (-T_SIZE/2, -T_SIZE/2),
+]
 
 MAP = [
-    [0,0,0,0,0,0,0,0,0,0,0,0],
-    [1,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0],
-    [1,0,0,0,0,0,0,0,0,1,0,0],
-    [1,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,2,0,0,0,1],
-    [1,1,1,1,1,1,1,1,1,1,1,1],
+    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,2,4,0,0,0,0,0,0,0,9,1,7,0,0,9,1,1],
+    [1,0,3,1,1,1,1,1,1,1,1,1,1,1,1,7,3,5,9,1,1,1,1,0,0,0,0,0,0,1,1],
+    [1,0,1,7,0,0,0,0,0,0,0,0,0,0,0,3,1,1,5,9,1,1,1,5,0,0,0,0,0,1,1],
+    [1,0,1,0,0,0,0,0,0,0,0,0,0,0,3,1,1,1,1,5,9,1,1,1,1,5,0,0,3,1,1],
+    [1,0,0,0,0,0,0,0,0,0,0,0,0,3,1,1,1,1,1,1,5,9,1,1,1,7,0,3,1,1,1],
+    [1,5,0,0,0,0,0,2,4,0,0,0,3,1,1,1,1,1,1,1,1,5,0,0,0,0,3,1,1,1,1],
+    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
 ]
 # -----TILE CONSTANTS-----
 
@@ -53,6 +97,20 @@ class MapTile(GameObject):
                 shape = T_POLY
             case 2:
                 shape = T_RAMP
+            case 3:
+                shape = T_RAMP_BIG
+            case 4:
+                shape = T_RAMP_F
+            case 5:
+                shape = T_RAMP_BIG_F
+            case 6:
+                shape = T_RAMP_U
+            case 7:
+                shape = T_RAMP_BIG_U
+            case 8:
+                shape = T_RAMP_FU
+            case 9:
+                shape = T_RAMP_BIG_FU
             case _:
                 shape = T_POLY
 
