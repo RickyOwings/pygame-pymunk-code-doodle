@@ -60,7 +60,6 @@ class Player(GameObject):
         keys = pygame.key.get_pressed()
         # presssing w and collding with something
         if keys[pygame.K_w]:
-            print("jump!")
             self.body.apply_force_at_world_point((0,-1500), self.body.position)
 
 

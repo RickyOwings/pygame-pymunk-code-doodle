@@ -1,12 +1,16 @@
-import pygame, pymunk, pymunk.pygame_util
+import pygame, pymunk, pymunk.pygame_util, sys
 from Player import Player
 from MapTile import MapTile, initMap
 from Camera import camera
 from GameObject import GameObject, updateAllGO, drawAllGO, instances
 
+print(len(sys.argv))
 
+if len(sys.argv) == 3:
+    RESOLUTION: tuple[float, float] = (float(sys.argv[1]), float(sys.argv[2]))
+else:
+    RESOLUTION: tuple[float, float] = (1920.0, 1080.0)
 #CONSTANTS
-RESOLUTION: tuple[float, float] = (1280.0, 720.0)
 FRAMERATE = 240.0
 
 
